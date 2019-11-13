@@ -4,9 +4,33 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Logout</title>
-</head>
-<body>
- dfjrhdohji
-</body>
+<title>Pagina di Logout</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <meta name="viewport" content="width=device-width">
+
+    </head>
+
+    <form method="link" action="logout.jsp">
+
+    <body align="center">
+
+        <input type="submit" value="logout">
+        
+     <body bgcolor="white">
+
+        <h1><font color="Red">Hai eseguito con successo il logout</font></h1>
+
+        <a href="home.jsp">Torna alla Home Page</a>
+
+    </body>
+
+    </body>
+
+     <%
+
+            session.invalidate();
+
+        %>
+
 </html>

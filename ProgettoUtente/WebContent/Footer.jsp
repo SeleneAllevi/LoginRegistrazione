@@ -3,35 +3,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>footer</title>
-<style>
-#primo{
-	 margin-left: 700px;
-	
-}
-#secondo{
-margin-right: 700px;
-
-}
-#footer{
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 50px;
-	background-color: hotpink;
-}
-
-</style>
+<link href="My.css" rel="stylesheet" type="text/css">
 </head>
-<body>
-<div id="footer">
-<h2 id="primo">Developed by<br>
-Selene Allevi<img width="1%" src="https://banner2.cleanpng.com/20171220/sqw/copyright-png-5a3a4ce5f1f736.72653533151377021399111351.jpg">
-</h2>
-<h2 id="secondo"><a href="home.jsp">Home</a><br>
-<a href="mailto:overnet@info.it">Contattaci </a> 
-</h2>
+<div id = "footer">
+
+<ul>
+<a href="homePage.jsp">HomePage</a> <br>
+<a href="mailto:overnet@info.it">Contattaci!</a><br>
+Developed by: Team2© <br>
+Selene Allevi |
+Liliana Ceragioli |
+Daniela Damiano |
+Catalina Dorneanu |
+Silvia Gallotta |
+Valentina Mannu |
+Chiara Nebuloni
+
+</ul>
 </div>
-</body>
+
 </html>

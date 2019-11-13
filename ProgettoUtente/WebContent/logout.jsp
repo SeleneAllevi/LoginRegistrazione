@@ -15,7 +15,7 @@
 
     <body align="center">
 
-        <input type="submit" value="logout">
+        
         
      <body bgcolor="white">
 

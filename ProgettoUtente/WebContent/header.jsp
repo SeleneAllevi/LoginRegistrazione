@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page import="com.ats.model.Utente" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Barra navigazione</title>
+<style>
+
+h3{
+ position: absolute;
+margin-top: 0%;
+margin-left: 90%;
+}
+
+</style>
+</head>
+<body>
+<form name="modulo" method="get" action="home.jsp">
+		<input type="image"  name="clicca" width=2% src="data:image/png;base64,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" width="5%"  >
+	</form>
+	
+<h3> <%=((Utente)((session.getAttribute("UtenteCorrente")))).getNome()
+%>
+</body>
+</html>

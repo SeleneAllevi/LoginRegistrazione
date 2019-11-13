@@ -15,8 +15,7 @@
 
     <body align="center">
 
-        
-        
+             
      <body bgcolor="white">
 
         <h1><font color="Red">Hai eseguito con successo il logout</font></h1>

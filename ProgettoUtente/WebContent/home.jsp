@@ -10,11 +10,10 @@
 margin-left: 40%;
 }
 
-
-
 </style>
 </head>
 <body>
+<header><jsp:include page="header.jsp"/></header>
 <br>
 <br>
 <div id="log"><h1 >PAGINA DI LOGIN</h1>

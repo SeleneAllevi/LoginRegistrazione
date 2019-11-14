@@ -1,0 +1,22 @@
+@charset "ISO-8859-1";
+/* FOOTER*/
+
+
+
+#footer {
+position: absolute;
+bottom: 0;
+width: 100%;
+height: 90px;
+text-align: center;
+background-color: grey;
+}
+ul {
+	color: white;
+}
+ul a {
+	color: blue;
+}
+ul :hover{
+	color: green;
+}

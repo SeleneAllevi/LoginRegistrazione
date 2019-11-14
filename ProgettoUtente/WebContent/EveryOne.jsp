@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ page import="java.util.ArrayList"%>
+    <%@ page import="java.util.*"%>
     <%@ page import="com.ats.model.*"%>
        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
        <%@ page isELIgnored ="false" %>
@@ -67,15 +67,18 @@
               <td><c:out value="${current.indirizzo}" />
                <td><c:out value="${current.citta}" />
                 <td><c:out value="${current.dataNascita}" />
-                 <td> <a href="AdminServlet"><input type="button" name="
-" value="Delete"/></a></td>
-              
+                
+                
+                
+     
+      
+      
+		<td> <a href="AdminServlet"=${current}><input type="button" name="Elimina" value="Delete" onclick="eliminazione"></a><
+
+		
         </tr>
       </c:forEach>
-		
-	
-	
-	
+
 
 </table>
 </body>

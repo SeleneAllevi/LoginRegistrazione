@@ -23,6 +23,7 @@ public class test {
 		UtenteDao dao=new UtenteDao();
 		//dao.addUtente(u1);
 		
+		dao.deleteUtente("asia");
 
 //			try {
 //				dao.updateUtente(u3);

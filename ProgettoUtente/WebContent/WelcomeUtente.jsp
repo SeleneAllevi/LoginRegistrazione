@@ -27,7 +27,10 @@
   <li><a href="logout.jsp">Logout</a></li>
    <% if (((Utente)((session.getAttribute("UtenteCorrente")))).getUsername().equalsIgnoreCase("admin") && 
 		   ((Utente)((session.getAttribute("UtenteCorrente")))).getPsw().equalsIgnoreCase("admin123")){ %>
-  <li><a href="EveryOne.jsp">Lista</a></li><%} %>
+  <li><a> <form action="ListaServlet" method="GET">
+<input type="submit" name="Lista" value="Lista">
+</form>
+</a></li><%} %>
   <li style="float:right"> <a>  <% session.getAttribute("UtenteCorrente");%>
 Benvenuto <%=((Utente)((session.getAttribute("UtenteCorrente")))).getNome()%> </a> </li>
 </ul>

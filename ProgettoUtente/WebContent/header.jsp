@@ -13,7 +13,6 @@
 <nav>
 <ul>
   <li><a href="home.jsp">Home</a></li>
-  
 </ul>
 </nav>
 </header>

@@ -5,10 +5,11 @@ import java.time.LocalDate;
 
 import com.ats.model.Utente;
 import com.ats.dao.UtenteDao;
+import com.ats.exception.DaoException;
 
 public class test {
 
-	public static void main(String[] args)  {
+	public static void main(String[] args) throws DaoException  {
 		// TODO Auto-generated method stub
 		Utente u3= new Utente();
 		u3.setUsername("u3");
@@ -23,7 +24,9 @@ public class test {
 		UtenteDao dao=new UtenteDao();
 		//dao.addUtente(u1);
 		
-		dao.deleteUtente("asia");
+		
+			dao.deleteUtente("asia");
+		
 
 //			try {
 //				dao.updateUtente(u3);

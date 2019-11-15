@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 
 import com.ats.dao.IUtenteDao;
 import com.ats.dao.UtenteDao;
+import com.ats.exception.DaoException;
 import com.ats.model.Utente;
 import com.ats.service.UtenteService;
 
@@ -27,10 +28,6 @@ public class RemoveServlet extends HttpServlet {
 
 
 	private UtenteDao dao;
-
-
-
-//ciao//
 
 
 	public RemoveServlet() {
@@ -68,7 +65,14 @@ public class RemoveServlet extends HttpServlet {
 
 		if (((Utente)((session.getAttribute("UtenteCorrente")))).getUsername().equalsIgnoreCase("admin") && ((Utente)((session.getAttribute("UtenteCorrente")))).getPsw().equalsIgnoreCase("admin123")){
 			//ArrayList <Utente>listaTutti=s.selezionaTutti();
-			s.cancellaUtente(userIns);
+			try {
+				s.cancellaUtente(userIns);
+			} catch (DaoException e) {
+				session.setAttribute("erroreDao", "Error occurred during DeleteUtente");
+				rd= request.getRequestDispatcher("PagError.jsp");
+				rd.forward(request, response);
+				
+			}
 			request.setAttribute("users",userIns);
 			rd = request.getRequestDispatcher("WelcomeUtente.jsp");
 			rd.forward(request, response);

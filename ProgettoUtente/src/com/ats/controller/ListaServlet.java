@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.ats.exception.DaoException;
 import com.ats.model.Utente;
 import com.ats.service.UtenteService;
 
@@ -40,8 +41,16 @@ public class ListaServlet extends HttpServlet {
 		//String pswIns=request.getParameter("psw");
 		HttpSession session = request.getSession();
 		RequestDispatcher rd=null;
+		
 		if (((Utente)((session.getAttribute("UtenteCorrente")))).getUsername().equalsIgnoreCase("admin") && ((Utente)((session.getAttribute("UtenteCorrente")))).getPsw().equalsIgnoreCase("admin123")){
-		ArrayList <Utente>listaTutti=s.selezionaTutti();
+			ArrayList<Utente> listaTutti=null;
+		try {
+			listaTutti = s.selezionaTutti();
+		} catch (DaoException e) {
+			session.setAttribute("erroreDao", "Error occurred during ListView");
+			rd= request.getRequestDispatcher("PagError.jsp");
+			rd.forward(request, response);
+		}
 		
 		session.setAttribute("EveryOne", listaTutti);
 		System.out.println("stampalista" + listaTutti);

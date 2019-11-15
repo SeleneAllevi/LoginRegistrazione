@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.ats.exception.DaoException;
 import com.ats.model.Utente;
 import com.ats.service.UtenteService;
 
@@ -50,35 +51,36 @@ public class LoginServlet extends HttpServlet {
 		RequestDispatcher rd=null;
 		String errore2="Username non riconosciuto";
 		String errore3="Password non riconosciuta";
+		Utente utrovato = new Utente();
 		try {
-			Utente utrovato=s.trovaUtente(request.getParameter("username"));
-			if (utrovato.getUsername()==null) {
-				//response.sendRedirect("Registrazione.jsp");
-				session.setAttribute("erroreUserInesistente", errore2);
-				rd= request.getRequestDispatcher("Registrazione.jsp");
-				rd.forward(request, response);
+			utrovato = s.trovaUtente(request.getParameter("username"));
+		} catch (DaoException e) {
+			session.setAttribute("erroreDao", "Error occurred during Login");
+			rd= request.getRequestDispatcher("PagError.jsp");
+			rd.forward(request, response);
+		}
+		if (utrovato.getUsername()==null) {
+			//response.sendRedirect("Registrazione.jsp");
+			session.setAttribute("erroreUserInesistente", errore2);
+			rd= request.getRequestDispatcher("Registrazione.jsp");
+			rd.forward(request, response);
+			
+		}
+		else {
+			session.setAttribute("UtenteCorrente", utrovato);
+			String passwordInserita=request.getParameter("psw");
+			if (passwordInserita.equalsIgnoreCase(utrovato.getPsw())) {
+			//response.sendRedirect("http://localhost:8082/ProgettoUtente/WelcomeUtente.jsp");
+				rd= request.getRequestDispatcher("WelcomeUtente.jsp");
+				rd.forward(request, response);	
 				
 			}
 			else {
-				session.setAttribute("UtenteCorrente", utrovato);
-				String passwordInserita=request.getParameter("psw");
-				if (passwordInserita.equalsIgnoreCase(utrovato.getPsw())) {
-				//response.sendRedirect("http://localhost:8082/ProgettoUtente/WelcomeUtente.jsp");
-					rd= request.getRequestDispatcher("WelcomeUtente.jsp");
-					rd.forward(request, response);	
-					
-				}
-				else {
-					session.setAttribute("errorePasswordInesistente", errore3);
-					rd= request.getRequestDispatcher("home.jsp");
-					rd.forward(request, response);
-					
-				}
+				session.setAttribute("errorePasswordInesistente", errore3);
+				rd= request.getRequestDispatcher("home.jsp");
+				rd.forward(request, response);
+				
 			}
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 	}
 

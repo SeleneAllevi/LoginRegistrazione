@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.InputMismatchException;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.ats.exception.DaoException;
 import com.ats.model.Utente;
 import com.ats.service.UtenteService;
 /**
@@ -44,7 +46,13 @@ public class UtenteServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		RequestDispatcher rd=null;
 		String usernameInserito=((Utente)(session.getAttribute("UtenteCorrente"))).getUsername();
-		s.cancellaUtente(usernameInserito);
+		try {
+			s.cancellaUtente(usernameInserito);
+		} catch (DaoException e) {
+			session.setAttribute("erroreDao", "Error occurred during Delete");
+			rd= request.getRequestDispatcher("PagError.jsp");
+			rd.forward(request, response);
+		}
 		String messaggioDelete="Utente cancellato";
 		session.setAttribute("messaggioDelete", messaggioDelete);
 		rd=request.getRequestDispatcher("home.jsp");
@@ -62,9 +70,11 @@ public class UtenteServlet extends HttpServlet {
 		Utente utrovato=null;
 		try {
 			utrovato = s.trovaUtente(request.getParameter("username"));
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+		} catch (DaoException e) {
+			session.setAttribute("erroreDao", "Error occurred during Registration");
+			rd= request.getRequestDispatcher("PagError.jsp");
+			rd.forward(request, response);
+			
 		}
 		
 			if (utrovato.getNome()==null) {
@@ -75,7 +85,7 @@ public class UtenteServlet extends HttpServlet {
 			utente.setCognome(request.getParameter("cognome"));
 			utente.setIndirizzo(request.getParameter("indirizzo"));
 			utente.setCitta(request.getParameter("citta"));
-//			try {
+			try {
 			//LocalDate tmpDate= LocalDate.of(Integer.parseInt(request.getParameter("anno")),
 								//			Integer.parseInt(request.getParameter("mese")),
 								//			Integer.parseInt(request.getParameter("giorno")));
@@ -85,24 +95,31 @@ public class UtenteServlet extends HttpServlet {
 				
 				//convert String to LocalDate
 				LocalDate tmpDate = LocalDate.parse(date);
-			utente.setDataNascita(tmpDate);
-			s.aggiungiUtente(utente);
+				utente.setDataNascita(tmpDate);
+			try {
+				s.aggiungiUtente(utente);
+			} catch (DaoException e) {
+				session.setAttribute("erroreDao", "Error occurred during Registration");
+				rd= request.getRequestDispatcher("PagError.jsp");
+				rd.forward(request, response);
+			}
 			response.getWriter().append("ho aggiunto un utente");
 			session.setAttribute("UtenteCorrente", utente);
 			rd= request.getRequestDispatcher("WelcomeUtente.jsp");
 			rd.forward(request, response);
 			}
-//		 catch (InputMismatchException | NumberFormatException x) {
-//			String eccezioneMismatch=("Eccezione: " + x + " ");
-//			response.getWriter().append("Non hai inserito la data correttamente" + eccezioneMismatch);
-//			rd= request.getRequestDispatcher("Registrazione.jsp");
-//			rd.forward(request, response);
+		 catch (DateTimeParseException x) {
+			session.setAttribute("erroreData", "Wrong date format: try again registration");
+			rd= request.getRequestDispatcher("Registrazione.jsp");
+			rd.forward(request, response);
 
-//		} catch (Exception e) {
-//			System.out.println("Eccezione: " + e);
-//		}
+		} catch (Exception e) {
+			session.setAttribute("erroreData", "Wrong date format: try again registration");
+			rd= request.getRequestDispatcher("Registrazione.jsp");
+			rd.forward(request, response);
+		}
 			
-//		}
+		}
 		else {
 			String errore1=("Username già esistente");
 			session.setAttribute("erroreUser", errore1);

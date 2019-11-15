@@ -37,8 +37,8 @@ public class UtenteDao implements IUtenteDao {
 			ps.setString(6,  utente.getCitta());
 			ps.setDate(7, Date.valueOf(utente.getDataNascita()) );
 			
-			ps.executeUpdate();
-			System.out.println("Numero stringhe aggiunte: ");
+			int righeImplicate=ps.executeUpdate();
+			System.out.println("Numero stringhe aggiunte:"+ righeImplicate);
 			ps.close();
 			conn.close();
 			
@@ -66,8 +66,8 @@ public class UtenteDao implements IUtenteDao {
 			ps.setString(5,  utente.getCitta());
 			ps.setDate(6, Date.valueOf(utente.getDataNascita()) );
 			
-			ps.executeUpdate();
-			System.out.println("Numero stringhe modificate: ");
+			int righeImplicate=ps.executeUpdate();
+			System.out.println("Numero stringhe modificate:"+ righeImplicate);
 			ps.close();
 			conn.close();
 			

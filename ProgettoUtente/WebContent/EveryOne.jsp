@@ -32,8 +32,6 @@
 		border: 1px solid #ddd;
 		padding: 8px;
 		}
-
-
 </style>
 </head>
 <body>
@@ -82,5 +80,6 @@
 
 
 </table>
+
 </body>
 </html>

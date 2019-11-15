@@ -24,6 +24,8 @@
 		<a href="home.jsp">Torna alla Home Page</a>
 </form>
 
+
+<footer><jsp:include page="Footer.jsp"/></footer>
 	</body>
 
 

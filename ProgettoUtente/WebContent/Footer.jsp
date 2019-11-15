@@ -34,7 +34,7 @@
 
 
 <ul>
-<a href="homePage.jsp" ;><img alt="home" src= "https://images.vexels.com/media/users/3/140527/isolated/preview/449b95d58f554656b159dd3ca21ab123-home-round-icon-by-vexels.png" width="60" height= "60"></a> 
+<a href="home.jsp" ;><img alt="home" src= "https://images.vexels.com/media/users/3/140527/isolated/preview/449b95d58f554656b159dd3ca21ab123-home-round-icon-by-vexels.png" width="60" height= "60"></a> 
  <a href="mailto:overnet@info.it"> <img alt="tel" src= "https://www.freepnglogos.com/uploads/email-png/mail-message-email-send-image-pixabay-5.png" width="60" height= "60"></a></h2><br>
 Developed by: Team2© <br>
 Selene Allevi |

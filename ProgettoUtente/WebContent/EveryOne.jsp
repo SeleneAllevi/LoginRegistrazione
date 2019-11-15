@@ -35,7 +35,7 @@
 
 #password{
 
- -webkit-text-security: circle; 
+ -webkit-text-security: circle;
 }
 </style>
 </head>
@@ -84,7 +84,11 @@
       				 </c:url>">Update</a>
                  
              	 </td>
-
+<td><a href="<c:url value="RemoveServlet"><c:param name="userCanc" value="${current.username}"/>
+      
+      </c:url>"><input type="button" name="bottone" value="Delete" /></a>
+      
+      </td>
 		
         </tr>
       </c:forEach>

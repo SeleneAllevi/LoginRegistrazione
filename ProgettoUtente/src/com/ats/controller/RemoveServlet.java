@@ -63,10 +63,13 @@ public class RemoveServlet extends HttpServlet {
 		//    
 		//if (bottom.equals("delete")){
 
-		if (((Utente)((session.getAttribute("UtenteCorrente")))).getUsername().equalsIgnoreCase("admin") && ((Utente)((session.getAttribute("UtenteCorrente")))).getPsw().equalsIgnoreCase("admin123")){
+//		if (((Utente)((session.getAttribute("UtenteCorrente")))).getUsername().equalsIgnoreCase("admin") && ((Utente)((session.getAttribute("UtenteCorrente")))).getPsw().equalsIgnoreCase("admin123")){
 			//ArrayList <Utente>listaTutti=s.selezionaTutti();
 			try {
 				s.cancellaUtente(userIns);
+				session.setAttribute("UtenteAggiornato", "Il profilo è stato cancellato!");
+				rd= request.getRequestDispatcher("WelcomeUtente.jsp");
+				rd.forward(request, response);
 			} catch (DaoException e) {
 				session.setAttribute("erroreDao", "Error occurred during DeleteUtente");
 				rd= request.getRequestDispatcher("PagError.jsp");
@@ -77,13 +80,13 @@ public class RemoveServlet extends HttpServlet {
 			rd = request.getRequestDispatcher("WelcomeUtente.jsp");
 			rd.forward(request, response);
 		}
-		else {
-			rd=request.getRequestDispatcher("home.jsp");
-			session.getAttribute("userCanc");
-			rd.forward(request, response);
-		}
+//		else {
+//			rd=request.getRequestDispatcher("home.jsp");
+//			session.getAttribute("userCanc");
+//			rd.forward(request, response);
+//		}
 
-	}
+	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

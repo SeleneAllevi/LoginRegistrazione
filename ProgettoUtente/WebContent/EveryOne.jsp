@@ -33,14 +33,13 @@
 		border: 1px solid #ddd;
 		padding: 8px;
 		}
-<<<<<<< HEAD
-=======
+
 
 #password{
 
  -webkit-text-security: circle;
 }
->>>>>>> branch 'master' of https://github.com/SeleneAllevi/LoginRegistrazione.git
+
 </style>
 </head>
 <body>
@@ -101,9 +100,6 @@
 
 </table>
 
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'master' of https://github.com/SeleneAllevi/LoginRegistrazione.git
 </body>
 </html>

@@ -28,7 +28,7 @@
 <header> 
 <nav>
 <ul>
-  <li><a href="home.jsp">Home</a></li>
+  <li><a href="WelcomeUtente.jsp">Home</a></li>
   <li><a href="logout.jsp">Logout</a></li>
    <% if (((Utente)((session.getAttribute("UtenteCorrente")))).getUsername().equalsIgnoreCase("admin") && 
 		   ((Utente)((session.getAttribute("UtenteCorrente")))).getPsw().equalsIgnoreCase("admin123")){ %>

@@ -6,6 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>RegistrazioneUtente</title>
 </head>
+<header> <jsp:include page="header.jsp"/></header>
 <body>
 <%String stampa= (String)session.getAttribute("erroreUserInesistente");
 if (stampa!=null){

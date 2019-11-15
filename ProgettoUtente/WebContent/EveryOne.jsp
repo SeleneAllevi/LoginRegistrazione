@@ -37,6 +37,7 @@
 </style>
 </head>
 <body>
+<header><jsp:include page="WelcomeUtente.jsp"/></header>
 
 <% 
  session.getAttribute("EveryOne");

@@ -10,6 +10,7 @@
 <meta name="viewport" content="width=device-width">
 
 </head>
+<header><jsp:include page="header.jsp"/></header>
 
 <form method="link" action="logout.jsp">
 

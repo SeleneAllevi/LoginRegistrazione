@@ -7,7 +7,7 @@
 <title>Aggiorna Dati</title>
 </head>
 <body>
-<header> <jsp:include page="header.jsp"/></header>
+<header><jsp:include page="WelcomeUtente.jsp"/></header>
 <form action="UpdateServlet" method="POST">
 	<b>Inserisci i dati Utente:</b>
 	Password:<input placeholder="password" type="password" name="psw" > <br>

@@ -10,7 +10,9 @@
 margin-left: 40%;
 }
 
-
+body{
+background-color: silver;
+}
 
 </style>
 </head>

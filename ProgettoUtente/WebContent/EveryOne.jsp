@@ -9,7 +9,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>EveryOne</title>
-<section><jsp:include page="section.jsp"/></section>
+
 <style>
 #stileTab1{
  	border:1px solid #eee;
@@ -38,6 +38,8 @@
 </style>
 </head>
 <body>
+<header><jsp:include page="WelcomeUtente.jsp"/></header>
+
 
 <% 
  session.getAttribute("EveryOne");
@@ -82,5 +84,7 @@
 
 
 </table>
+
+
 </body>
 </html>

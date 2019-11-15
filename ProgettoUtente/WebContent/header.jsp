@@ -6,9 +6,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Barra navigazione</title>
+<<<<<<< HEAD
 <link href="CSS/My.css" rel="stylesheet" type="text/css">
+=======
+<link href="MyHeader.css" rel="stylesheet" type="text/css">
+>>>>>>> branch 'master' of https://github.com/SeleneAllevi/LoginRegistrazione.git
 </head>
 <body>
+<<<<<<< HEAD
 <header>
 <nav>
 <ul>
@@ -19,5 +24,16 @@
 </ul>
 </nav>
 </header>
+=======
+<header> 
+<nav>
+<ul>
+  <li><a href="home.jsp">Home</a></li>
+  
+</ul>
+</nav>
+</header>
+
+>>>>>>> branch 'master' of https://github.com/SeleneAllevi/LoginRegistrazione.git
 </body>
 </html>

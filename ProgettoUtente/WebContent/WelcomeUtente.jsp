@@ -26,6 +26,7 @@
 if (stampa!=null){
 response.getWriter().append(stampa);}
 %> <br>
+
 <% session.getAttribute("UtenteCorrente");
 %>
 

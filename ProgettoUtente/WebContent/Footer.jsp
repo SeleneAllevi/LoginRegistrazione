@@ -18,7 +18,7 @@
 <img alt="tw" src="https://www.ipzs.it/img/internet/icone/iconTwitter.png" width="50" height="50"></a>
 
 <a href="https://www.linkedin.com/">
-<img alt="lk" src="http://files.softicons.com/download/application-icons/circle-icons-by-martz90/png/256x256/linkedin.png" width="50" height="50"></a>
+<img alt="lk" src="https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/linkedin_circle-512.png" width="50" height="50"></a>
 
 <a href="https://www.facebook.com/">
 <img alt="fb" src="https://cdn.icon-icons.com/icons2/808/PNG/128/facebook_icon-icons.com_66092.png" width="53" height="50"></a>
@@ -34,7 +34,7 @@
 
 
 <ul>
-<a href="homePage.jsp" ;><img alt="home" src= "https://images.vexels.com/media/users/3/140527/isolated/preview/449b95d58f554656b159dd3ca21ab123-home-round-icon-by-vexels.png" width="60" height= "60"></a> 
+<a href="home.jsp" ;><img alt="home" src= "https://images.vexels.com/media/users/3/140527/isolated/preview/449b95d58f554656b159dd3ca21ab123-home-round-icon-by-vexels.png" width="60" height= "60"></a> 
  <a href="mailto:overnet@info.it"> <img alt="tel" src= "https://www.freepnglogos.com/uploads/email-png/mail-message-email-send-image-pixabay-5.png" width="60" height= "60"></a></h2><br>
 Developed by: Team2© <br>
 Selene Allevi |

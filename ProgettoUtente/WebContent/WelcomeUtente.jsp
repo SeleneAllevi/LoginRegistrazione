@@ -9,6 +9,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Welcome Utente</title>
+<section><jsp:include page="section.jsp"/></section>
 <style>
 
 #cool{

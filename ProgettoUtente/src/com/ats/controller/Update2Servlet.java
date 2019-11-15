@@ -3,6 +3,7 @@ package com.ats.controller;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -61,7 +62,7 @@ public class Update2Servlet extends HttpServlet {
 		utente.setCognome(request.getParameter("cognome"));
 		utente.setIndirizzo(request.getParameter("indirizzo"));
 		utente.setCitta(request.getParameter("citta"));
-		
+		try {
 		String date = (request.getParameter("dataNascita"));
 		LocalDate tmpDate = LocalDate.parse(date);
 		utente.setDataNascita(tmpDate);
@@ -76,6 +77,17 @@ public class Update2Servlet extends HttpServlet {
 		session.setAttribute("UtenteAggiornato", "Il profilo è stato aggiornato!");
 		rd= request.getRequestDispatcher("WelcomeUtente.jsp");
 		rd.forward(request, response);
+		}
+		 catch (DateTimeParseException x) {
+			session.setAttribute("erroreData", "Wrong date format: try again registration");
+			rd= request.getRequestDispatcher("Update2.jsp");
+			rd.forward(request, response);
+	
+		} catch (Exception e) {
+			session.setAttribute("erroreData", "Wrong date format: try again registration");
+			rd= request.getRequestDispatcher("Update2.jsp");
+			rd.forward(request, response);
+		}
 	}
 
 }

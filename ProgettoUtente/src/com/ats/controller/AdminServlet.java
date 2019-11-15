@@ -1,6 +1,10 @@
 package com.ats.controller;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,9 +36,11 @@ public class AdminServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		RequestDispatcher rd=null;
 		String bottone=request.getParameter("bottone");
+		String eliminazione=(String)session.getAttribute("Elimina");
 		response.getWriter().append(request.getParameter("button"));
-		
 	}
+		 
+		
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

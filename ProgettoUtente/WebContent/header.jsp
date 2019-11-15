@@ -9,16 +9,14 @@
 <link href="MyHeader.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<header>
+<header> 
 <nav>
 <ul>
   <li><a href="home.jsp">Home</a></li>
-  <li><a href="logout.jsp">Logout</a></li>
-  <li><a href="EveryOne.jsp">Lista </a> </li>
-  <li style="float:right"> <a> Benvenuto <%= session.getAttribute ("UtenteCorrente") %> </a> </li>
- 
+  
 </ul>
 </nav>
 </header>
+
 </body>
 </html>

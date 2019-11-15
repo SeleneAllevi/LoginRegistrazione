@@ -22,6 +22,7 @@
 		</h1>
 
 		<a href="home.jsp">Torna alla Home Page</a>
+</form>
 
 	</body>
 

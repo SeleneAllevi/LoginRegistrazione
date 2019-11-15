@@ -12,6 +12,10 @@
 if (stampa!=null){
 response.getWriter().append(stampa);}
 %> <br>
+<%String stampa1= (String)session.getAttribute("erroreData");
+if (stampa1!=null){
+response.getWriter().append(stampa1);}
+%> <br>
 <form action="UtenteServlet" method="POST">
 	<b>Inserisci i dati Utente:</b>
 	Username: <input placeholder="username" type="text" name="username" > <br>

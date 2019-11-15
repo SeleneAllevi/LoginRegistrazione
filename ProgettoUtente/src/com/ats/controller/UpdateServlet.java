@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.ats.exception.DaoException;
 import com.ats.model.Utente;
 import com.ats.service.UtenteService;
 
@@ -61,9 +62,10 @@ public class UpdateServlet extends HttpServlet {
 		
 		try {
 			s.aggiornaUtente(utente);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (DaoException e) {
+			session.setAttribute("erroreDao", "Error occurred during Update");
+			rd= request.getRequestDispatcher("PagError.jsp");
+			rd.forward(request, response);
 		}
 		session.setAttribute("UtenteAggiornato", "Il profilo è stato aggiornato!");
 		rd= request.getRequestDispatcher("WelcomeUtente.jsp");

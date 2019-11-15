@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import com.ats.exception.DaoException;
 import com.ats.model.Utente;
 import com.ats.utility.ConnectionFactory;
 
@@ -23,7 +24,7 @@ public class UtenteDao implements IUtenteDao {
 	}
 
 	@Override
-	public void addUtente(Utente utente) {
+	public void addUtente(Utente utente) throws DaoException {
 		String query="Insert into utente values (?,?,?,?,?,?,?)";
 		
 		conn=getConnection();
@@ -43,8 +44,7 @@ public class UtenteDao implements IUtenteDao {
 			conn.close();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new DaoException();
 		}
 		
 		
@@ -52,7 +52,7 @@ public class UtenteDao implements IUtenteDao {
 	}
 
 	@Override
-	public void updateUtente(Utente utente) throws SQLException {
+	public void updateUtente(Utente utente) throws DaoException {
 		String query="Update utente set psw=?, nome=?,cognome=?, indirizzo=?, citta=?, dataNascita=? where username=?";
 		
 		conn=getConnection();
@@ -72,15 +72,14 @@ public class UtenteDao implements IUtenteDao {
 			conn.close();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new DaoException();
 		}
 
 		
 	}
 
 	@Override
-	public void deleteUtente(String username){
+	public void deleteUtente(String username) throws DaoException{
 		String query="delete from utente where username=?";
 		
 		conn=getConnection();
@@ -91,22 +90,21 @@ public class UtenteDao implements IUtenteDao {
 			System.out.println("Numero righe cancellate: "+ righeImplicate);
 		}
 		catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new DaoException();
 		}
 		try {
 			ps.close();
 			conn.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new DaoException();
+			
 		}
 		
 		
 	}
 
 	@Override
-	public ArrayList<Utente> selectAll(){
+	public ArrayList<Utente> selectAll() throws DaoException{
 		// TODO Auto-generated method stub
 		String query="Select* from utente";
 		conn=getConnection();
@@ -134,20 +132,21 @@ public class UtenteDao implements IUtenteDao {
 			listaL.add(tmp);
 		}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new DaoException();
 		
 		}	
 		return listaL;
 	}
 
 	@Override
-	public Utente getUtente(String username) throws SQLException {
+	public Utente getUtente(String username) throws DaoException {
 		String query="Select* from utente where username=?";
 		conn=getConnection();
 		Utente tmp=new Utente();
 	
-		ps=conn.prepareStatement(query);
+		try {
+			ps=conn.prepareStatement(query);
+	
 		ps.setString(1, username);
 		rs=ps.executeQuery();
 		while(rs.next()) {
@@ -166,6 +165,9 @@ public class UtenteDao implements IUtenteDao {
 			else
 				tmp.setDataNascita(null);
 		
+		}
+		} catch (SQLException e) {
+			throw new DaoException();
 		}
 		return tmp;	
 	}

@@ -58,7 +58,7 @@
 	</thead>
 	
 	  <c:forEach items="${EveryOne}" var="current">
-	  <c:set var="user" value="${current.username}"/>
+	 
         <tr>
           <td><c:out value="${current.username}" />
            <td><c:out value="${current.psw}" />
@@ -71,11 +71,14 @@
                 
                 
      
+      <td><a href="<c:url value="RemoveServlet"><c:param name="userCanc" value="${current.username}"/>
       
+      </c:url>"><input type="button" name="bottone" value="Delete" /></a>
       
-		<td> <a href="AdminServlet"=${current}><input type="button" name="Elimina" value="Delete" onclick="eliminazione"></a><
-
+      </td>
 		
+
+
         </tr>
       </c:forEach>
 

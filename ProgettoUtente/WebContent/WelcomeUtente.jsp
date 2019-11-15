@@ -9,60 +9,41 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Welcome Utente</title>
-<<<<<<< HEAD
 
 
 
 <link href="MyHeader.css" rel="stylesheet" type="text/css">
 
-
 <style>
-
 #cool{
-    color: pink;
+    color: black;
 }
 #cool:visited {
-    color: lime;
+    color: black;
 }
-
+div {
+text-align: left;
+}
 </style>
 </head>
 <body>
-<header> <jsp:include page="header.jsp"/></header>
+<header> 
+<nav>
+<ul>
+  <li><a href="home.jsp">Home</a></li>
+  <li><a href="logout.jsp">Logout</a></li>
+   <% if (((Utente)((session.getAttribute("UtenteCorrente")))).getUsername().equalsIgnoreCase("admin") && 
+		   ((Utente)((session.getAttribute("UtenteCorrente")))).getPsw().equalsIgnoreCase("admin123")){ %>
+  <li><a href="EveryOne.jsp">Lista</a></li><%} %>
+  <li style="float:right"> <a>  <% session.getAttribute("UtenteCorrente");%>
+Benvenuto <%=((Utente)((session.getAttribute("UtenteCorrente")))).getNome()%> </a> </li>
+</ul>
+</nav>
+</header>
+
 <%String stampa= (String)session.getAttribute("UtenteAggiornato");
 if (stampa!=null){
 response.getWriter().append(stampa);}
 %> <br>
 
-
-<% session.getAttribute("UtenteCorrente");
-%>
-
-Benvenuto <%=((Utente)((session.getAttribute("UtenteCorrente")))).getNome()
-%>
-
-<br>
-<br>
->>>>>>> branch 'master' of https://github.com/SeleneAllevi/LoginRegistrazione.git
-<form action="UtenteServlet" method="GET">
-<input type="submit" name="Cancella" value="Cancella Utente">
-</form>
-
-<a id="cool" href="Update.jsp"> Aggiorna Profilo Utente</a>
-<<<<<<< HEAD
 <section><jsp:include page="section.jsp"/></section>
-=======
-
- <% if (((Utente)((session.getAttribute("UtenteCorrente")))).getUsername().equalsIgnoreCase("admin") && ((Utente)((session.getAttribute("UtenteCorrente")))).getPsw().equalsIgnoreCase("admin123")){ %>
-
-<form action="ListaServlet" method="GET">
-<input type="submit" name="lista" value="lista">
-</form>
- <%} %> 
-<a href="logout.jsp">
-<input type="button" name="bottone" value="Logout" />
-</a>
->>>>>>> branch 'master' of https://github.com/SeleneAllevi/LoginRegistrazione.git
-<footer><jsp:include page="Footer.jsp"/></footer>
-</body>
-</html>

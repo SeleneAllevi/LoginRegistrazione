@@ -33,7 +33,10 @@
 		padding: 8px;
 		}
 
+#password{
 
+ -webkit-text-security: circle; 
+}
 </style>
 </head>
 <body>
@@ -59,22 +62,28 @@
 	</thead>
 	
 	  <c:forEach items="${EveryOne}" var="current">
-	  <c:set var="user" value="${current.username}"/>
+	 
         <tr>
           <td><c:out value="${current.username}" />
-           <td><c:out value="${current.psw}" />
+           <td id="password"><c:out value="${current.psw}" /> 
             <td><c:out value="${current.nome}" />
              <td><c:out value="${current.cognome}" />
               <td><c:out value="${current.indirizzo}" />
                <td><c:out value="${current.citta}" />
                 <td><c:out value="${current.dataNascita}" />
-                
-                
-                
-     
-      
-      
-		<td> <a href="AdminServlet"=${current}><input type="button" name="Elimina" value="Delete" onclick="eliminazione"></a><
+                <td>
+                 <a href="<c:url value="Update2.jsp">                            
+       				<c:param name="portamivia" value="${current.username}"/>  
+       				<c:param name="portamiviapsw" value="${current.psw}"/> 
+       				<c:param name="portamivianome" value="${current.nome}"/>
+       				<c:param name="portamiviacognome" value="${current.cognome}"/>
+       				<c:param name="portamiviaindirizzo" value="${current.indirizzo}"/>
+       				<c:param name="portamiviacitta" value="${current.citta}"/>
+       				<c:param name="portamiviadata" value="${current.dataNascita}"/> 
+       				                       
+      				 </c:url>">Update</a>
+                 
+             	 </td>
 
 		
         </tr>

@@ -1,8 +1,8 @@
 package com.ats.controller;
 
 import java.io.IOException;
-
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,16 +16,16 @@ import com.ats.model.Utente;
 import com.ats.service.UtenteService;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class Update2Servlet
  */
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/Update2Servlet")
+public class Update2Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public Update2Servlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,9 +34,12 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		response.sendRedirect("http://localhost:8082/ProgettoUtente/WelcomeUtente.jsp");
+		// TODO Auto-generated method stub
+		UtenteService s=new UtenteService();
+		HttpSession session = request.getSession();
+		RequestDispatcher rd=null;
+		Utente utente=new Utente();
+		String username=(String)session.getAttribute("usernamePortamiVia");
 		
 	}
 
@@ -44,43 +47,33 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
 		UtenteService s=new UtenteService();
 		HttpSession session = request.getSession();
 		RequestDispatcher rd=null;
-		String errore2="Username non riconosciuto";
-		String errore3="Password non riconosciuta";
+		Utente utente=new Utente();
+		String username=(String)session.getAttribute("usernamePortamiVia");
+		System.out.println(username);
+		
+		utente.setUsername(username);
+		utente.setPsw(request.getParameter("psw"));
+		utente.setNome(request.getParameter("nome"));
+		utente.setCognome(request.getParameter("cognome"));
+		utente.setIndirizzo(request.getParameter("indirizzo"));
+		utente.setCitta(request.getParameter("citta"));
+		
+		String date = (request.getParameter("dataNascita"));
+		LocalDate tmpDate = LocalDate.parse(date);
+		utente.setDataNascita(tmpDate);
+		
 		try {
-			Utente utrovato=s.trovaUtente(request.getParameter("username"));
-			if (utrovato.getUsername()==null) {
-				//response.sendRedirect("Registrazione.jsp");
-				session.setAttribute("erroreUserInesistente", errore2);
-				rd= request.getRequestDispatcher("Registrazione.jsp");
-				rd.forward(request, response);
-				
-			}
-			else {
-				session.setAttribute("UtenteCorrente", utrovato);
-				String passwordInserita=request.getParameter("psw");
-				if (passwordInserita.equalsIgnoreCase(utrovato.getPsw())) {
-				//response.sendRedirect("http://localhost:8082/ProgettoUtente/WelcomeUtente.jsp");
-					rd= request.getRequestDispatcher("WelcomeUtente.jsp");
-					rd.forward(request, response);	
-					
-				}
-				else {
-					session.setAttribute("errorePasswordInesistente", errore3);
-					rd= request.getRequestDispatcher("home.jsp");
-					rd.forward(request, response);
-					
-				}
-			}
-			
+			s.aggiornaUtente(utente);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		session.setAttribute("UtenteAggiornato", "Il profilo è stato aggiornato!");
+		rd= request.getRequestDispatcher("WelcomeUtente.jsp");
+		rd.forward(request, response);
 	}
 
 }

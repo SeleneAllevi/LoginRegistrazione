@@ -18,7 +18,7 @@
 <img alt="tw" src="https://www.ipzs.it/img/internet/icone/iconTwitter.png" width="50" height="50"></a>
 
 <a href="https://www.linkedin.com/">
-<img alt="lk" src="http://files.softicons.com/download/application-icons/circle-icons-by-martz90/png/256x256/linkedin.png" width="50" height="50"></a>
+<img alt="lk" src="https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/linkedin_circle-512.png" width="50" height="50"></a>
 
 <a href="https://www.facebook.com/">
 <img alt="fb" src="https://cdn.icon-icons.com/icons2/808/PNG/128/facebook_icon-icons.com_66092.png" width="53" height="50"></a>

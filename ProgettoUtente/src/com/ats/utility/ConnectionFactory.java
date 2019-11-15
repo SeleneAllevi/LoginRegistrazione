@@ -7,8 +7,8 @@ import java.sql.SQLException;
 public class ConnectionFactory {
 	String driver="oracle.jdbc.driver.OracleDriver";
 	String connectionUrl="jdbc:oracle:thin:@localhost:1521:xe";
-	String dbUser="studente";
-	String dbPassword="0000";
+	String dbUser="liliana";
+	String dbPassword="password";
 
 
 	private static ConnectionFactory connectionFactory=null;

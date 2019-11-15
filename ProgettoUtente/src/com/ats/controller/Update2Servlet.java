@@ -3,7 +3,6 @@ package com.ats.controller;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.InputMismatchException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,16 +17,16 @@ import com.ats.model.Utente;
 import com.ats.service.UtenteService;
 
 /**
- * Servlet implementation class UpdateServlet
+ * Servlet implementation class Update2Servlet
  */
-@WebServlet("/UpdateServlet")
-public class UpdateServlet extends HttpServlet {
+@WebServlet("/Update2Servlet")
+public class Update2Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateServlet() {
+    public Update2Servlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,7 +36,12 @@ public class UpdateServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		UtenteService s=new UtenteService();
+		HttpSession session = request.getSession();
+		RequestDispatcher rd=null;
+		Utente utente=new Utente();
+		String username=(String)session.getAttribute("usernamePortamiVia");
+		
 	}
 
 	/**
@@ -48,7 +52,9 @@ public class UpdateServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		RequestDispatcher rd=null;
 		Utente utente=new Utente();
-		String username=((Utente)(session.getAttribute("UtenteCorrente"))).getUsername();
+		String username=(String)session.getAttribute("usernamePortamiVia");
+		System.out.println(username);
+		
 		utente.setUsername(username);
 		utente.setPsw(request.getParameter("psw"));
 		utente.setNome(request.getParameter("nome"));
@@ -63,16 +69,13 @@ public class UpdateServlet extends HttpServlet {
 		try {
 			s.aggiornaUtente(utente);
 		} catch (DaoException e) {
-			session.setAttribute("erroreDao", "Error occurred during Update");
+			session.setAttribute("erroreDao", "Error occurred during UpdateTable");
 			rd= request.getRequestDispatcher("PagError.jsp");
 			rd.forward(request, response);
 		}
 		session.setAttribute("UtenteAggiornato", "Il profilo è stato aggiornato!");
 		rd= request.getRequestDispatcher("WelcomeUtente.jsp");
 		rd.forward(request, response);
-
-		
-	
 	}
 
 }

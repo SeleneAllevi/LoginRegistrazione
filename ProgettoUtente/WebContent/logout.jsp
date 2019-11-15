@@ -28,11 +28,17 @@ text-align:center;
 	    <form method="link" action="logout.jsp">
 		<h1><font color="darkgreen">Hai eseguito con successo il logout</font></h1>
 		<a href="home.jsp">Torna alla Home Page</a>
-</div>
 
-		<%
-			session.invalidate();
-		%>
-	
-</body>
+</form>
+</div>
+<footer><jsp:include page="Footer.jsp"/></footer>
+	</body>
+
+
+
+	<%
+		session.invalidate();
+	%>
+
+
 </html>

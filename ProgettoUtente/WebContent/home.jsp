@@ -7,17 +7,17 @@
 <title>Home</title>
 <style>
 
+div{
+float:right;
+border:double;
+background-color:white;
+width:20%;
+height:450px;
+margin-right:50px;
+text-align:center;
 
-div {
-	display: block;
-	float: right;
-	width: 30%;
-	float: right;
-	padding: 5px;
-	margin: 10px;
-	height: 400px;
-	border: double;
 }
+
 </style>
 </head>
 <body>
@@ -27,13 +27,11 @@ div {
 	  <div>
 			<h1>PAGINA DI LOGIN</h1>
 			<form action="LoginServlet" method="POST">
-				Username: <input placeholder="username" type="text" name="username">
-				<br> Password:<input placeholder="password" type="password"
-					name="psw"> <br> <input type="submit" value="login">
+				Username: <input placeholder="username" type="text" name="username"><br>
+				Password:<input placeholder="password" type="password"name="psw"> <br> <input type="submit" value="login">
 			</form>
 			<a href="Registrazione.jsp"><span id="grassetto">Se non sei ancora registrato clicca qui!</span></a>
-		</div>
-	</aside>
+	
 	
 	<%String stampa= (String)session.getAttribute("erroreUser");
 if (stampa!=null){
@@ -50,6 +48,8 @@ if (stampa2!=null){
 response.getWriter().append(stampa2);}
 %>
 	<br>
+	</div>
+	</aside>
 	<footer><jsp:include page="Footer.jsp" /></footer>
 </body>
 </html>

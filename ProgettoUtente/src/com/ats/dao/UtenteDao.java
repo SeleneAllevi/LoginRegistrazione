@@ -11,7 +11,7 @@ import java.util.LinkedList;
 
 import com.ats.exception.DaoException;
 import com.ats.model.Utente;
-import com.ats.utility.ConnectionFactory;
+import com.ats.utility.SingletonConnection;
 
 public class UtenteDao implements IUtenteDao {
 	Connection conn=null;
@@ -19,7 +19,12 @@ public class UtenteDao implements IUtenteDao {
 	ResultSet rs=null;
 	
 	private Connection getConnection() {
-		Connection con=ConnectionFactory.getIstance().getConnection();
+		Connection con = null;
+		try {
+			con = SingletonConnection.getInstance().getConnection() ;
+		} catch (DaoException e) {
+			e.printStackTrace();
+		}
 		return con;
 	}
 
@@ -134,7 +139,14 @@ public class UtenteDao implements IUtenteDao {
 		} catch (SQLException e) {
 			throw new DaoException();
 		
-		}	
+		}
+		try {
+			ps.close();
+			conn.close();
+		} catch (SQLException e) {
+			throw new DaoException();
+			
+		}
 		return listaL;
 	}
 
@@ -168,6 +180,13 @@ public class UtenteDao implements IUtenteDao {
 		}
 		} catch (SQLException e) {
 			throw new DaoException();
+		}
+		try {
+			ps.close();
+			conn.close();
+		} catch (SQLException e) {
+			throw new DaoException();
+			
 		}
 		return tmp;	
 	}

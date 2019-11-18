@@ -11,26 +11,22 @@
 <title>EveryOne</title>
 
 <style>
-#stileTab1{
- 	border:1px solid #eee;
-	border-collapse:collapse;
-	
-	padding: 5px;
-	
+body{
+background-color:silver;
 
- }
- 
+}
+
  thead{
  	font-size: large;
  	font-weight: bold;
  	color: white;
- 	background-color: navy; 
+ 	background-color:darkgreen; 
  }
  
 
  
  td, th{
-		border: 1px solid #ddd;
+		border: 3px solid #111;
 		padding: 8px;
 		}
 
@@ -38,6 +34,11 @@
 #password{
 
  -webkit-text-security: circle;
+}
+
+table{
+float:right;
+padding:50px 50px;
 }
 
 </style>
@@ -84,22 +85,18 @@
        				<c:param name="portamiviaindirizzo" value="${current.indirizzo}"/>
        				<c:param name="portamiviacitta" value="${current.citta}"/>
        				<c:param name="portamiviadata" value="${current.dataNascita}"/> 
-       				                       
-      				 </c:url>">Update</a>
-                 
+       				
+      				</c:url>"></a>
+                 <a href="<c:url value="Update2Servlet"><c:param name="usernamePortamiVia" value="${current.username}"/>	
+					</c:url>"><input type="button" name="bottone" value="Update" /></a> 
+	             <a href="<c:url value="RemoveServlet"><c:param name="userCanc" value="${current.username}"/>
+     			    </c:url>"><input type="button" name="bottone" value="Delete" /></a>
              	 </td>
-<td><a href="<c:url value="RemoveServlet"><c:param name="userCanc" value="${current.username}"/>
-      
-      </c:url>"><input type="button" name="bottone" value="Delete" /></a>
-      
-      </td>
-		
+ 
         </tr>
       </c:forEach>
 
 
 </table>
-
-
 </body>
 </html>

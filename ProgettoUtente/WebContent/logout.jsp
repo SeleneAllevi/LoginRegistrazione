@@ -8,37 +8,42 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width">
 <style>
-
-div{
-float:right;
-border:double;
-background-color:white;
-width:20%;
-height:450px;
-margin-right:50px;
-text-align:center;
+#logout {
+	border: double;
+	border-color: green;
+	background-color: white;
+	width: auto;
+	height: auto;
+	margin: 50px;
+}
+body{
+background-color:silver;
 
 }
-
 </style>
 </head>
 <body>
 	<header><jsp:include page="header.jsp" /></header>
-	<div>
-	    <form method="link" action="logout.jsp">
-		<h1><font color="darkgreen">Hai eseguito con successo il logout</font></h1>
-		<a href="home.jsp">Torna alla Home Page</a>
+	<aside>
+		<div id="logout">
+			<form method="link" action="logout.jsp">
+				<h1>
+					<font color="darkgreen">Hai eseguito con successo il logout</font>
+				</h1>
+				<a href="home.jsp">Torna alla Home Page</a>
 
-</form>
-</div>
-<footer><jsp:include page="Footer.jsp"/></footer>
-	</body>
+			</form>
+			<br>
+		</div>
+	</aside>
+	<footer><jsp:include page="Footer.jsp" /></footer>
+</body>
 
 
 
-	<%
-		session.invalidate();
-	%>
+<%
+	session.invalidate();
+%>
 
 
 </html>

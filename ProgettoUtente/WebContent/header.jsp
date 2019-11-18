@@ -6,20 +6,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Barra navigazione</title>
-
 <link href="CSS/My.css" rel="stylesheet" type="text/css">
-
 <link href="MyHeader.css" rel="stylesheet" type="text/css">
-
 </head>
 <body>
-
-
-
 <header> 
 <nav>
-<ul>
-  <li><a href="home.jsp">Home</a></li>
+<ul class="header">
+ <li><a href="home.jsp">Home</a></li>
 </ul>
 </nav>
 </header>

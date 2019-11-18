@@ -5,8 +5,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>PagErrore</title>
+<style>
+body{
+background-color:silver;
+
+}
+</style>
 </head>
 <body>
+<header><jsp:include page="header.jsp" /></header>
 
 <h3>Sorry an exception occured!</h3>  
 
@@ -15,6 +22,6 @@ if (stampa!=null){
 response.getWriter().append(stampa);}
 %>
 
- 
+<footer><jsp:include page="Footer.jsp"/></footer>
 </body>
 </html>

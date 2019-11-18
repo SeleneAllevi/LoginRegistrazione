@@ -9,56 +9,73 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Welcome Utente</title>
-
-
-
 <link href="MyHeader.css" rel="stylesheet" type="text/css">
-
 <style>
-#cool{
-    color: black;
+
+
+#d{
+float:left;
+border:double;
+border-color:green;
+background-color:white;
+width:40%;
+height:auto;
+margin:50px;
 }
-#cool:visited {
-    color: black;
+#riga {
+color:darkgreen;
+border-top:double;
+}
+body{
+background-color:silver;
+
 }
 
 </style>
 </head>
-<body>
-<header> 
-<nav>
-<ul>
+<header>
+<ul class="header">
   <li><a href="WelcomeUtente.jsp">Home</a></li>
   <li><a href="logout.jsp">Logout</a></li>
    <% if (((Utente)((session.getAttribute("UtenteCorrente")))).getUsername().equalsIgnoreCase("admin") && 
 		   ((Utente)((session.getAttribute("UtenteCorrente")))).getPsw().equalsIgnoreCase("admin123")){ %>
 
-  <li><a> <form action="ListaServlet" method="GET">
-<input type="submit" name="Lista" value="Lista">
-</form>
-</a></li><%} %>
-
-
+  <li><a href="ListaServlet"> Lista </a></li><%} %>
   <li style="float:right"> <a>  <% session.getAttribute("UtenteCorrente");%>
 Benvenuto <%=((Utente)((session.getAttribute("UtenteCorrente")))).getNome()%> </a> </li>
 </ul>
-</nav>
 </header>
 
+<body>
 <% String stampa= (String)session.getAttribute("UtenteAggiornato");
 if (stampa!=null){
 response.getWriter().append(stampa);}
-%> <br>
+%> <br> 
 
-<section><jsp:include page="section.jsp"/></section>
-
+<div id=d>
+<div>
+<br>
+<img src="https://steamuserimages-a.akamaihd.net/ugc/266105270676508594/1E81E71792D487ED7A249D0F8A057C2955693135/"  width="100" height="100" ><br>
 <form action="UtenteServlet" method="GET">
 <input type="submit" name="Cancella" value="Cancella Utente">
 </form> <br>
-
-
-<a id="cool" href="Update.jsp" > Aggiorna Profilo Utente</a>
+<form action="Update.jsp">
+<input type="submit" name="Aggiorna" value="Aggiorna Profilo">
+</form>
+</div>
+<hr id="riga">
+<div>
+<article>
+<h2> Social </h2>
+<a href="https://www.instagram.com/">Instagram </a> <br>
+<a href="https://twitter.com/login?lang=it">Twitter</a> <br>
+<a href="https://www.linkedin.com/">Linkedin </a> <br>
+<a href="https://www.facebook.com/">Facebook</a><br>
+<a href="https://www.youtube.com/">YouTube</a><br><br>
+</article>
+</div>
+</div>
+</body>
 
 <footer><jsp:include page="Footer.jsp"/></footer>
-</body>
 </html>

@@ -15,7 +15,6 @@
 	width: auto;
 	height: auto;
 	margin: 50px;
-	text-align:center;
 }
 body{
 background-color:silver;

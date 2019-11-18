@@ -24,7 +24,7 @@
 <img alt="fb" src="https://cdn3.iconfinder.com/data/icons/popular-services-brands/512/youtube-512.png" width="50" height="50"></a>
 <br>
 <hr>
-
+<!--  -->
 <a href="home.jsp"><img alt="home" src= "https://www.trzcacak.rs/myfile/full/162-1621215_home-icon-circle-home-png-icon.png" width="55" height= "55"></a> 
 <a href="mailto:overnet@info.it"> <img alt="tel" src= "https://www.freepnglogos.com/uploads/email-png/mail-message-email-send-image-pixabay-5.png" width="60" height= "60"></a><br>
 <p>

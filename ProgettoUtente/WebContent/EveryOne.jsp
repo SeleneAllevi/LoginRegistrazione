@@ -51,7 +51,7 @@ padding:50px 50px;
  session.getAttribute("EveryOne");
 
  %>
-
+<!--  -->
 <table>
 	<thead>
 		<tr>
@@ -85,8 +85,10 @@ padding:50px 50px;
        				<c:param name="portamiviaindirizzo" value="${current.indirizzo}"/>
        				<c:param name="portamiviacitta" value="${current.citta}"/>
        				<c:param name="portamiviadata" value="${current.dataNascita}"/> 
-       				</c:url>"><input type="button" name="bottone" value="Update" /></a> 
-      		
+       				
+      				</c:url>"><input type="button" name="bottone" value="Update" /></a>
+                 <!-- <a href="<c:url value="Update2Servlet"><c:param name="usernamePortamiVia" value="${current.username}"/>	
+					</c:url>"><input type="button" name="bottone" value="Update" /></a> -->
 	             <a href="<c:url value="RemoveServlet"><c:param name="userCanc" value="${current.username}"/>
      			    </c:url>"><input type="button" name="bottone" value="Delete" /></a>
              	 </td>

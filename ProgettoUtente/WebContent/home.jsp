@@ -21,7 +21,6 @@ body{
 background-color:silver;
 
 }
-<!---->
 </style>
 </head>
 <body>

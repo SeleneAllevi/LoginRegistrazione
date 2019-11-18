@@ -18,6 +18,7 @@ background-color:white;
 width:40%;
 height:auto;
 margin:50px;
+text-align:center;
 }
 body{
 background-color:silver;

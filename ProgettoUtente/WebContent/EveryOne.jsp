@@ -51,7 +51,7 @@ padding:50px 50px;
  session.getAttribute("EveryOne");
 
  %>
-
+<!--  -->
 <table>
 	<thead>
 		<tr>
